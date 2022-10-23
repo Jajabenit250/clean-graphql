@@ -1,7 +1,6 @@
-import PortfolioEntity from '../../../domain/entities/PortfolioEntity';
+import PageInput from '../../../domain/Inputs/PageInput';
 import { UseCase } from '../UseCase';
-import PortfolioInput from '../../../domain/Inputs/PortofolioInput'
-
+import PortfolioEntity from '../../../domain/entities/PortfolioEntity';
 
 export interface CreatePageInterface
     extends UseCase<CreatePageInterface.Request, CreatePageInterface.Response> {
@@ -9,6 +8,12 @@ export interface CreatePageInterface
 }
 
 export namespace CreatePageInterface {
-    export type Request = Omit<PortfolioInput, ''>;
-    export type Response = PortfolioEntity;
+    export type Request = Omit<PageInput, ''>;
+    export type Response = IRequest;
+}
+
+interface IRequest {
+    name: string;
+    url: string;
+    portfolio: PortfolioEntity;
 }
