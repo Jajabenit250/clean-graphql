@@ -1,11 +1,7 @@
 import { Field, InputType } from 'type-graphql';
 
 @InputType()
-export default class PortfolioInput {
+export default class PortfolioVersionInput {
     @Field()
     name: string;
-
-    @Field({ nullable: true })
-    url: string;
-
 }

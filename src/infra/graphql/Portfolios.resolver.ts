@@ -1,23 +1,21 @@
 import { Arg, Mutation, Query, Resolver } from 'type-graphql';
 import { Service } from 'typedi';
-import { getRepository } from 'typeorm';
-import { CreatePortofolio } from '../../app/usecases/portofolio/Createportofolio';
+import { CreatePortofolio } from '../../app/usecases/portfolio/Createportofolio';
+import { ListPortofolio } from '../../app/usecases/portfolio/ListPortofolios';
 
 import PortfolioEntity from '../../domain/entities/PortfolioEntity';
 import PortfolioInput from '../../domain/Inputs/PortofolioInput';
 
 @Resolver()
 @Service()
-export default class ListPortfoliosResolver {
+export default class PortfoliosResolver {
   constructor(
     private readonly createPortofolio: CreatePortofolio,
+    private readonly listPortofolio: ListPortofolio,
   ) { }
   @Query(() => [PortfolioEntity], { description: 'Get all portofolios' })
   async listPortfolios(): Promise<PortfolioEntity[]> {
-    const portfolioRepository = getRepository(PortfolioEntity);
-    return portfolioRepository
-      .createQueryBuilder('p')
-      .getMany();
+    return await this.listPortofolio.execute()
   }
 
   @Mutation(() => PortfolioEntity)

@@ -2,13 +2,7 @@ import { Field, InputType } from 'type-graphql';
 
 
 @InputType()
-export default class PageInput {
-    @Field()
-    name: string;
-
-    @Field({ nullable: true })
-    url: string;
-
+export default class PageFilterInput {
     @Field()
     portfolio_id: number;
 

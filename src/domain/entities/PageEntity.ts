@@ -2,6 +2,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Field, ObjectType } from 'type-graphql';
 
 import PortfolioVersionEntity from './PortfolioVersionEntity';
+import PortfolioEntity from './PortfolioEntity';
 
 @ObjectType('Page')
 @Entity()
@@ -20,5 +21,9 @@ export default class PageEntity {
 
   @Field(() => PortfolioVersionEntity)
   @ManyToOne(() => PortfolioVersionEntity, { nullable: false })
-  portfolio: PortfolioVersionEntity;
+  portfolioVersion: PortfolioVersionEntity;
+
+  @Field(() => PortfolioEntity)
+  @ManyToOne(() => PortfolioEntity, { nullable: false })
+  portfolio: PortfolioEntity;
 }
