@@ -1,6 +1,5 @@
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-
 import PageEntity from './PageEntity';
 
 @ObjectType('Portfolio')

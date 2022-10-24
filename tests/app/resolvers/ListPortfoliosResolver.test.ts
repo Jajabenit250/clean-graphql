@@ -1,6 +1,6 @@
 import PortfolioEntity from '../../../src/domain/entities/PortfolioEntity';
 import createApolloServer from '../../infra/test_helpers/createApolloServer';
-import createPortfolioEntity from '../../infra/test_helpers/createPortfolioHelper';
+import createPortfolioEntity from '../../domain/mocks/createPortfolioHelper';
 
 describe('ListPortfoliosResolver', () => {
   const QUERY = `

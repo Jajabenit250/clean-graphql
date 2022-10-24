@@ -1,14 +1,13 @@
-import PortfolioEntity from '../../../domain/entities/PortfolioEntity';
+import PageInput from '../../../domain/Inputs/PageInput';
 import { UseCase } from '../UseCase';
-import PortfolioInput from '../../../domain/Inputs/PortofolioInput'
-
+import PageEntity from '../../../domain/entities/PageEntity';
 
 export interface CreatePageInterface
     extends UseCase<CreatePageInterface.Request, CreatePageInterface.Response> {
-    execute(portofolioData: CreatePageInterface.Request): Promise<CreatePageInterface.Response>;
+    execute(pageData: CreatePageInterface.Request): Promise<CreatePageInterface.Response>;
 }
 
 export namespace CreatePageInterface {
-    export type Request = Omit<PortfolioInput, ''>;
-    export type Response = PortfolioEntity;
+    export type Request = Omit<PageInput, ''>;
+    export type Response = PageEntity;
 }
