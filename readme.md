@@ -46,6 +46,7 @@ to handle this issue i thought of 3 ways of doing it.
     this approach gives user flexibility to create as many versions as he wants and set rules to each versions plus meaningful relationships between table each portfolio have unique versions. the problems that this approach my bring is the processing time to fetch Pages that belongs to a certain Portfolio and queries are a bit complicated.
 
     **Relationships**
+
     A `Portfolio` can have a set of many `Portfolio Version`.
     One `Portfolio Version` must belong to exactly one `Portfolio`.
     A `Portfolio Version` can have a set of many `Pages`.
@@ -65,5 +66,3 @@ to handle this issue i thought of 3 ways of doing it.
     A `Portfolio` can have a set of many `Pages`.
     A `Portfolio Version` can have a set of many `Pages`.
     One `Page` must belong to exactly one `Portfolio` and to exact one `Portfolio Version`.
-
-**Versioning of Pages Choice** since my focus is on Pages Versioning I have used choice  **2**
