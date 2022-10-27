@@ -2,7 +2,7 @@ import PortfolioEntity from '../../../src/domain/entities/PortfolioEntity';
 import createApolloServer from '../../infra/test_helpers/createApolloServer';
 import createPortfolioEntity from '../../domain/mocks/createPortfolioHelper';
 
-describe('ListPortfoliosResolver', () => {
+describe('PortfoliosResolver', () => {
   const QUERY = `
     query ListPortfolios {
       listPortfolios {
@@ -21,9 +21,11 @@ describe('ListPortfoliosResolver', () => {
     portfolio2 = await createPortfolioEntity();
     portfolio3 = await createPortfolioEntity();
   });
+  const server = createApolloServer();
 
+  // test get portfolios
   test('return 3 items', async () => {
-    const server = createApolloServer();
+
     const response = await server.executeOperation({
       query: QUERY,
       variables: {},
@@ -48,4 +50,5 @@ describe('ListPortfoliosResolver', () => {
       ],
     });
   });
+
 });
